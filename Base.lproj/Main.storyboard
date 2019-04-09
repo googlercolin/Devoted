@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Q0c-vN-P8N">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Prayer List-->
+        <scene sceneID="09O-Xq-Ajm">
+            <objects>
+                <tableViewController id="kPr-wB-lpy" customClass="PrayerListTableViewController" customModule="Devoted" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="5YX-Le-nwq">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="prayer_title_cell" id="gOd-Hw-c6j">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gOd-Hw-c6j" id="BJs-JY-c2s">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="kPr-wB-lpy" id="eO4-8K-tgP"/>
+                            <outlet property="delegate" destination="kPr-wB-lpy" id="KbE-Z2-6cb"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Prayer List" id="k7L-pP-W49">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="49C-WU-cHE">
+                            <connections>
+                                <segue destination="m8N-kd-hhu" kind="show" id="0h9-64-XKt"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="wnP-K1-j34" kind="show" identifier="moveToComplete" id="Ypd-Q0-78U"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Btp-OM-9DM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="232.80000000000001" y="139.880059970015"/>
+        </scene>
+        <!--Prayer Details View Controller-->
+        <scene sceneID="PCe-8m-qQY">
+            <objects>
+                <viewController id="wnP-K1-j34" customClass="prayerDetailsViewController" customModule="Devoted" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ZO7-pg-Cqj">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="04X-Ik-ht9">
+                                <rect key="frame" x="20" y="99" width="335" height="26.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gz9-TS-owT">
+                                <rect key="frame" x="154" y="318" width="67" height="30"/>
+                                <state key="normal" title="Complete"/>
+                                <connections>
+                                    <action selector="completeTapped:" destination="wnP-K1-j34" eventType="touchUpInside" id="gfN-h4-osd"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="04X-Ik-ht9" firstAttribute="leading" secondItem="DHg-av-MG8" secondAttribute="leading" constant="20" id="Qiv-7R-sol"/>
+                            <constraint firstItem="Gz9-TS-owT" firstAttribute="top" secondItem="04X-Ik-ht9" secondAttribute="bottom" constant="192.5" id="RlM-hc-2cZ"/>
+                            <constraint firstItem="Gz9-TS-owT" firstAttribute="centerX" secondItem="ZO7-pg-Cqj" secondAttribute="centerX" id="eG3-rT-8DW"/>
+                            <constraint firstItem="DHg-av-MG8" firstAttribute="trailing" secondItem="04X-Ik-ht9" secondAttribute="trailing" constant="20" id="oHZ-na-srQ"/>
+                            <constraint firstItem="04X-Ik-ht9" firstAttribute="centerX" secondItem="ZO7-pg-Cqj" secondAttribute="centerX" id="paD-gs-b9G"/>
+                            <constraint firstItem="04X-Ik-ht9" firstAttribute="top" secondItem="DHg-av-MG8" secondAttribute="top" constant="35" id="xoS-8u-eiG"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="DHg-av-MG8"/>
+                    </view>
+                    <connections>
+                        <outlet property="titleLabel" destination="04X-Ik-ht9" id="RXT-bT-rsZ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fPu-RW-Mve" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="233" y="827"/>
+        </scene>
+        <!--Add Prayer View Controller-->
+        <scene sceneID="Dum-OJ-uok">
+            <objects>
+                <viewController id="m8N-kd-hhu" customClass="addPrayerViewController" customModule="Devoted" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="TFb-TH-gok">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Prayer Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Akh-tn-kb6">
+                                <rect key="frame" x="20" y="84" width="87" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Details" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f8A-aa-FVf">
+                                <rect key="frame" x="20" y="151" width="53" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PJD-MI-IHA">
+                                <rect key="frame" x="20" y="113" width="335" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Priority" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l1E-oB-PDW">
+                                <rect key="frame" x="20" y="321" width="55" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="XaR-Nz-UUo">
+                                <rect key="frame" x="95" y="316" width="51" height="31"/>
+                            </switch>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" keyboardDismissMode="interactive" text="More details on your prayer" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="en0-DL-y90">
+                                <rect key="frame" x="20" y="180" width="335" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <accessibility key="accessibilityConfiguration" hint="More details"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="14i-TP-9NH">
+                                <rect key="frame" x="172" y="370" width="30" height="30"/>
+                                <state key="normal" title="Add"/>
+                                <connections>
+                                    <action selector="addTapped:" destination="m8N-kd-hhu" eventType="touchUpInside" id="7Bg-ox-5Me"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="en0-DL-y90" firstAttribute="leading" secondItem="wDj-Qt-i0h" secondAttribute="leading" constant="20" id="4wL-1i-LPW"/>
+                            <constraint firstItem="Akh-tn-kb6" firstAttribute="leading" secondItem="wDj-Qt-i0h" secondAttribute="leading" constant="20" id="6FM-oJ-d0X"/>
+                            <constraint firstItem="XaR-Nz-UUo" firstAttribute="top" secondItem="en0-DL-y90" secondAttribute="bottom" constant="8" id="8tz-ZV-blA"/>
+                            <constraint firstItem="wDj-Qt-i0h" firstAttribute="trailing" secondItem="en0-DL-y90" secondAttribute="trailing" constant="20" id="8uE-Fn-9qB"/>
+                            <constraint firstItem="14i-TP-9NH" firstAttribute="top" secondItem="XaR-Nz-UUo" secondAttribute="bottom" constant="23" id="Auk-k8-eDZ"/>
+                            <constraint firstItem="Akh-tn-kb6" firstAttribute="top" secondItem="wDj-Qt-i0h" secondAttribute="top" constant="20" id="DGk-UG-t1A"/>
+                            <constraint firstItem="14i-TP-9NH" firstAttribute="centerX" secondItem="TFb-TH-gok" secondAttribute="centerX" id="ELO-PN-nji"/>
+                            <constraint firstItem="f8A-aa-FVf" firstAttribute="leading" secondItem="wDj-Qt-i0h" secondAttribute="leading" constant="20" id="J3Y-8m-rbN"/>
+                            <constraint firstItem="PJD-MI-IHA" firstAttribute="centerX" secondItem="TFb-TH-gok" secondAttribute="centerX" id="Kg6-9d-EhV"/>
+                            <constraint firstItem="l1E-oB-PDW" firstAttribute="top" secondItem="en0-DL-y90" secondAttribute="bottom" constant="13" id="RES-od-Ryo"/>
+                            <constraint firstItem="wDj-Qt-i0h" firstAttribute="trailing" secondItem="PJD-MI-IHA" secondAttribute="trailing" constant="20" id="Ssd-xq-ud9"/>
+                            <constraint firstItem="PJD-MI-IHA" firstAttribute="top" secondItem="Akh-tn-kb6" secondAttribute="bottom" constant="8" symbolic="YES" id="Vc5-i0-IEW"/>
+                            <constraint firstItem="en0-DL-y90" firstAttribute="top" secondItem="f8A-aa-FVf" secondAttribute="bottom" constant="8" id="hT4-uY-toP"/>
+                            <constraint firstItem="XaR-Nz-UUo" firstAttribute="leading" secondItem="l1E-oB-PDW" secondAttribute="trailing" constant="20" id="lvB-4I-Mth"/>
+                            <constraint firstItem="f8A-aa-FVf" firstAttribute="top" secondItem="PJD-MI-IHA" secondAttribute="bottom" constant="8" id="pz5-ZK-S4m"/>
+                            <constraint firstItem="en0-DL-y90" firstAttribute="centerX" secondItem="TFb-TH-gok" secondAttribute="centerX" id="sY7-oC-AtP"/>
+                            <constraint firstItem="PJD-MI-IHA" firstAttribute="leading" secondItem="wDj-Qt-i0h" secondAttribute="leading" constant="20" id="t88-w5-JFB"/>
+                            <constraint firstItem="l1E-oB-PDW" firstAttribute="leading" secondItem="wDj-Qt-i0h" secondAttribute="leading" constant="20" id="xMi-jT-7np"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="wDj-Qt-i0h"/>
+                    </view>
+                    <connections>
+                        <outlet property="prayerTitleTextField" destination="PJD-MI-IHA" id="wIP-Sa-w54"/>
+                        <outlet property="prioritySwitch" destination="XaR-Nz-UUo" id="EIq-1S-K5x"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dn8-vL-W8n" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="888.79999999999995" y="139.880059970015"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="CBX-fy-Eji">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Q0c-vN-P8N" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="R0z-uX-Pje">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="kPr-wB-lpy" kind="relationship" relationship="rootViewController" id="aQW-vm-yA6"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GS5-DH-JSx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-482" y="140"/>
+        </scene>
+    </scenes>
+</document>
